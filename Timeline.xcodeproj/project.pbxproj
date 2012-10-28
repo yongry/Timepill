@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CF13CA13163CE1E200989D6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF13CA12163CE1E200989D6D /* UIKit.framework */; };
+		CF13CA15163CE1E200989D6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF13CA14163CE1E200989D6D /* Foundation.framework */; };
+		CF13CA17163CE1E200989D6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF13CA16163CE1E200989D6D /* CoreGraphics.framework */; };
+		CF13CA19163CE1E200989D6D /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF13CA18163CE1E200989D6D /* CoreData.framework */; };
+		CF13CA1F163CE1E200989D6D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF13CA1D163CE1E200989D6D /* InfoPlist.strings */; };
+		CF13CA21163CE1E200989D6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF13CA20163CE1E200989D6D /* main.m */; };
+		CF13CA25163CE1E200989D6D /* TimelineAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF13CA24163CE1E200989D6D /* TimelineAppDelegate.m */; };
+		CF13CA28163CE1E300989D6D /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF13CA26163CE1E300989D6D /* MainStoryboard.storyboard */; };
+		CF13CA2B163CE1E300989D6D /* Timeline.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF13CA29163CE1E300989D6D /* Timeline.xcdatamodeld */; };
+		CF13CA2E163CE1E300989D6D /* TimelineMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF13CA2D163CE1E300989D6D /* TimelineMasterViewController.m */; };
+		CF13CA31163CE1E300989D6D /* TimelineDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF13CA30163CE1E300989D6D /* TimelineDetailViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CF13CA0E163CE1E200989D6D /* Timeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF13CA12163CE1E200989D6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CF13CA14163CE1E200989D6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CF13CA16163CE1E200989D6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CF13CA18163CE1E200989D6D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CF13CA1C163CE1E200989D6D /* Timeline-Info.plist */ = {isa = PBXFileReference; path = "Timeline-Info.plist"; sourceTree = "<group>"; };
+		CF13CA1E163CE1E200989D6D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CF13CA20163CE1E200989D6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CF13CA22163CE1E200989D6D /* Timeline-Prefix.pch */ = {isa = PBXFileReference; path = "Timeline-Prefix.pch"; sourceTree = "<group>"; };
+		CF13CA23163CE1E200989D6D /* TimelineAppDelegate.h */ = {isa = PBXFileReference; path = TimelineAppDelegate.h; sourceTree = "<group>"; };
+		CF13CA24163CE1E200989D6D /* TimelineAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineAppDelegate.m; sourceTree = "<group>"; };
+		CF13CA27163CE1E300989D6D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		CF13CA2A163CE1E300989D6D /* Timeline.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Timeline.xcdatamodel; sourceTree = "<group>"; };
+		CF13CA2C163CE1E300989D6D /* TimelineMasterViewController.h */ = {isa = PBXFileReference; path = TimelineMasterViewController.h; sourceTree = "<group>"; };
+		CF13CA2D163CE1E300989D6D /* TimelineMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineMasterViewController.m; sourceTree = "<group>"; };
+		CF13CA2F163CE1E300989D6D /* TimelineDetailViewController.h */ = {isa = PBXFileReference; path = TimelineDetailViewController.h; sourceTree = "<group>"; };
+		CF13CA30163CE1E300989D6D /* TimelineDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineDetailViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF13CA0B163CE1E200989D6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF13CA13163CE1E200989D6D /* UIKit.framework in Frameworks */,
+				CF13CA15163CE1E200989D6D /* Foundation.framework in Frameworks */,
+				CF13CA17163CE1E200989D6D /* CoreGraphics.framework in Frameworks */,
+				CF13CA19163CE1E200989D6D /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF13CA03163CE1E200989D6D = {
+			isa = PBXGroup;
+			children = (
+				CF13CA1A163CE1E200989D6D /* Timeline */,
+				CF13CA11163CE1E200989D6D /* Frameworks */,
+				CF13CA0F163CE1E200989D6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF13CA0F163CE1E200989D6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF13CA0E163CE1E200989D6D /* Timeline.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF13CA11163CE1E200989D6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CF13CA12163CE1E200989D6D /* UIKit.framework */,
+				CF13CA14163CE1E200989D6D /* Foundation.framework */,
+				CF13CA16163CE1E200989D6D /* CoreGraphics.framework */,
+				CF13CA18163CE1E200989D6D /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF13CA1A163CE1E200989D6D /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				CF13CA23163CE1E200989D6D /* TimelineAppDelegate.h */,
+				CF13CA24163CE1E200989D6D /* TimelineAppDelegate.m */,
+				CF13CA26163CE1E300989D6D /* MainStoryboard.storyboard */,
+				CF13CA2C163CE1E300989D6D /* TimelineMasterViewController.h */,
+				CF13CA2D163CE1E300989D6D /* TimelineMasterViewController.m */,
+				CF13CA2F163CE1E300989D6D /* TimelineDetailViewController.h */,
+				CF13CA30163CE1E300989D6D /* TimelineDetailViewController.m */,
+				CF13CA29163CE1E300989D6D /* Timeline.xcdatamodeld */,
+				CF13CA1B163CE1E200989D6D /* Supporting Files */,
+			);
+			path = Timeline;
+			sourceTree = "<group>";
+		};
+		CF13CA1B163CE1E200989D6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF13CA1C163CE1E200989D6D /* Timeline-Info.plist */,
+				CF13CA1D163CE1E200989D6D /* InfoPlist.strings */,
+				CF13CA20163CE1E200989D6D /* main.m */,
+				CF13CA22163CE1E200989D6D /* Timeline-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF13CA0D163CE1E200989D6D /* Timeline */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF13CA34163CE1E300989D6D /* Build configuration list for PBXNativeTarget "Timeline" */;
+			buildPhases = (
+				CF13CA0A163CE1E200989D6D /* Sources */,
+				CF13CA0B163CE1E200989D6D /* Frameworks */,
+				CF13CA0C163CE1E200989D6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Timeline;
+			productName = Timeline;
+			productReference = CF13CA0E163CE1E200989D6D /* Timeline.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF13CA05163CE1E200989D6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Timeline;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = CF13CA08163CE1E200989D6D /* Build configuration list for PBXProject "Timeline" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF13CA03163CE1E200989D6D;
+			productRefGroup = CF13CA0F163CE1E200989D6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF13CA0D163CE1E200989D6D /* Timeline */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF13CA0C163CE1E200989D6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF13CA1F163CE1E200989D6D /* InfoPlist.strings in Resources */,
+				CF13CA28163CE1E300989D6D /* MainStoryboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF13CA0A163CE1E200989D6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF13CA21163CE1E200989D6D /* main.m in Sources */,
+				CF13CA25163CE1E200989D6D /* TimelineAppDelegate.m in Sources */,
+				CF13CA2B163CE1E300989D6D /* Timeline.xcdatamodeld in Sources */,
+				CF13CA2E163CE1E300989D6D /* TimelineMasterViewController.m in Sources */,
+				CF13CA31163CE1E300989D6D /* TimelineDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CF13CA1D163CE1E200989D6D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF13CA1E163CE1E200989D6D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CF13CA26163CE1E300989D6D /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CF13CA27163CE1E300989D6D /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CF13CA32163CE1E300989D6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CF13CA33163CE1E300989D6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF13CA35163CE1E300989D6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Timeline/Timeline-Prefix.pch";
+				INFOPLIST_FILE = "Timeline/Timeline-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CF13CA36163CE1E300989D6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Timeline/Timeline-Prefix.pch";
+				INFOPLIST_FILE = "Timeline/Timeline-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF13CA08163CE1E200989D6D /* Build configuration list for PBXProject "Timeline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF13CA32163CE1E300989D6D /* Debug */,
+				CF13CA33163CE1E300989D6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF13CA34163CE1E300989D6D /* Build configuration list for PBXNativeTarget "Timeline" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF13CA35163CE1E300989D6D /* Debug */,
+				CF13CA36163CE1E300989D6D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CF13CA29163CE1E300989D6D /* Timeline.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CF13CA2A163CE1E300989D6D /* Timeline.xcdatamodel */,
+			);
+			currentVersion = CF13CA2A163CE1E300989D6D /* Timeline.xcdatamodel */;
+			path = Timeline.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CF13CA05163CE1E200989D6D /* Project object */;
+}

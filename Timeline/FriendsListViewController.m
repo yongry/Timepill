@@ -43,12 +43,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [[[DataClient shareClient].testFetchedResultsController sections] count];  
+    return [[[[DataClient shareClient]friendListFetchedResultsController] sections] count];  
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    id <NSFetchedResultsSectionInfo> sectionInfo = [[[[DataClient shareClient] testFetchedResultsController] sections] objectAtIndex:section];
+    id <NSFetchedResultsSectionInfo> sectionInfo = [[[[DataClient shareClient] friendListFetchedResultsController] sections] objectAtIndex:section];
  
 	NSInteger count = [sectionInfo numberOfObjects];
     return count;
@@ -75,8 +75,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        NSManagedObjectContext *context = [[[DataClient shareClient] testFetchedResultsController] managedObjectContext];
-        [context deleteObject:[[[DataClient shareClient] testFetchedResultsController] objectAtIndexPath:indexPath]];
+        NSManagedObjectContext *context = [[[DataClient shareClient] friendListFetchedResultsController] managedObjectContext];
+        [context deleteObject:[[[DataClient shareClient] friendListFetchedResultsController] objectAtIndexPath:indexPath]];
         
         NSError *error = nil;
         if (![context save:&error]) {
@@ -148,7 +148,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
 
-      NSManagedObject *object = [[[DataClient shareClient]testFetchedResultsController] objectAtIndexPath:indexPath];
+      NSManagedObject *object = [[[DataClient shareClient]friendListFetchedResultsController] objectAtIndexPath:indexPath];
       /*test code demo
       cell.textLabel.text = [[object valueForKey:@"time"] description];*/
    

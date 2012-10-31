@@ -18,6 +18,8 @@
 @property (strong, nonatomic) NSFetchedResultsController *friendWeiboFetchedResultsController;
 @property (strong, nonatomic) NSFetchedResultsController *personInfoFetchedResultsController;
 @property (strong, nonatomic) NSFetchedResultsController *friendListFetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *RpersonInfoFetchedResultsController;
+@property (strong, nonatomic) NSFetchedResultsController *RfriendListFetchedResultsController;
 // test: @property (strong, nonatomic) NSFetchedResultsController *testFetchedResultsController;
 
 + (DataClient *)shareClient;

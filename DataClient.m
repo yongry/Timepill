@@ -16,6 +16,8 @@
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 @synthesize personInfoFetchedResultsController = _personInfoFetchedResultsController;
 @synthesize friendListFetchedResultsController = _friendListFetchedResultsController;
+@synthesize RpersonInfoFetchedResultsController = _RpersonInfoFetchedResultsController;
+@synthesize RfriendListFetchedResultsController = _RfriendListFetchedResultsController;
 @synthesize personWeiboFetchedResultsController = _personWeiboFetchedResultsController;
 @synthesize friendWeiboFetchedResultsController = _friendWeiboFetchedResultsController;
 //test :@synthesize testFetchedResultsController = _testFetchedResultsController;
@@ -219,6 +221,89 @@
     return _friendListFetchedResultsController;
 }  
 
+- (NSFetchedResultsController *)RpersonDataFetchedResultsController
+{
+    if (_RpersonInfoFetchedResultsController != nil) {
+        return _RpersonInfoFetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RPersonInfo" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:200];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"PersonInfo"];
+    aFetchedResultsController.delegate = self;
+    self.RpersonInfoFetchedResultsController = aFetchedResultsController;
+    
+    NSError *error = nil;
+    
+    
+    NSError *fetchError;
+	if (![self.RpersonInfoFetchedResultsController performFetch:&fetchError]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    
+    return _RpersonInfoFetchedResultsController;
+}  
+#pragma mark - Fetched results controller
+
+
+- (NSFetchedResultsController *)RfriendListFetchedResultsController
+{
+    if (_RfriendListFetchedResultsController != nil) {
+        return _RfriendListFetchedResultsController;
+    }
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    // Edit the entity name as appropriate.
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"RFriendList" inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Set the batch size to a suitable number.
+    [fetchRequest setFetchBatchSize:200];
+    
+    // Edit the sort key as appropriate.
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO];
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sortDescriptor, nil];
+    
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    // Edit the section name key path and cache name if appropriate.
+    // nil for section name key path means "no sections".
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    aFetchedResultsController.delegate = self;
+    self.RfriendListFetchedResultsController = aFetchedResultsController;
+    
+    NSError *error = nil;
+    
+    
+    NSError *fetchError;
+	if (![self.RfriendListFetchedResultsController performFetch:&fetchError]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+	    abort();
+	}
+    
+    return _RfriendListFetchedResultsController;
+}  
+
+
 /* test controller
 - (NSFetchedResultsController *)testFetchedResultsController
 {
@@ -360,8 +445,8 @@
                [newManagedObject setValue:[dic valueForKey:@"location"] forKey:@"location"];
                [newManagedObject setValue:[dic valueForKey:@"name"] forKey:@"name"]; 
                [newManagedObject setValue:[dic valueForKey:@"profile_image_url"] forKey:@"profile_image_url"];
-               [newManagedObject setValue:[dic valueForKey:@"screen_namee"] forKey:@"screen_name"];
-               [newManagedObject setValue:[dic valueForKey:@"uDescription"] forKey:@"description"]; 
+               [newManagedObject setValue:[dic valueForKey:@"screen_name"] forKey:@"screen_name"];
+               [newManagedObject setValue:[dic valueForKey:@"description"] forKey:@"uDescription"]; 
                [newManagedObject setValue:[dic valueForKey:@"url"] forKey:@"url"]; 
                // Save the context.
 
@@ -486,6 +571,102 @@
                 }
                 break;
             }*/
+            case 5:
+            {
+                NSManagedObjectContext *context = [self.RpersonInfoFetchedResultsController managedObjectContext];
+                NSEntityDescription *entity = [[self.RpersonInfoFetchedResultsController fetchRequest] entity];
+                NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+                
+                [newManagedObject setValue:[dic valueForKey:@"sex"] forKey:@"sex"];
+                [newManagedObject setValue:[dic valueForKey:@"name"] forKey:@"name"];
+                [newManagedObject setValue:[dic valueForKey:@"uid"] forKey:@"uid"];
+                [newManagedObject setValue:[dic valueForKey:@"headurl"] forKey:@"headurl"];
+                [newManagedObject setValue:[dic valueForKey:@"mainurl"] forKey:@"mainurl"]; 
+                [newManagedObject setValue:[dic valueForKey:@"tinyurl"] forKey:@"tinyurl"];
+                               // Save the context.
+                
+                if (![context save:&error]){
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    abort();
+                }
+                break;
+            }
+
+            case 6:
+            {
+                NSManagedObjectContext *context = [self.personWeiboFetchedResultsController managedObjectContext];
+                NSEntityDescription *entity = [[self.personWeiboFetchedResultsController fetchRequest] entity];
+                NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+                
+                [newManagedObject setValue:[dic valueForKey:@"comment_count"] forKey:@"comments_count"];
+                [newManagedObject setValue:[dic valueForKey:@"time"] forKey:@"created_at"];
+                [newManagedObject setValue:[dic valueForKey:@"location"] forKey:@"geo"];
+                [newManagedObject setValue:[dic valueForKey:@"status_id"] forKey:@"id"]; 
+       
+                [newManagedObject setValue:[dic valueForKey:@"message"] forKey:@"text"]; 
+                                
+                // Save the context.
+                
+                if (![context save:&error]){
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    abort();
+                }
+                break;
+            }
+                
+            case 7:
+            {
+                NSManagedObjectContext *context = [self.friendWeiboFetchedResultsController managedObjectContext];
+                NSEntityDescription *entity = [[self.friendWeiboFetchedResultsController fetchRequest] entity];
+                NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+                
+                
+                [newManagedObject setValue:[dic valueForKey:@"comment_count"] forKey:@"comments_count"];
+                [newManagedObject setValue:[dic valueForKey:@"time"] forKey:@"created_at"];
+                [newManagedObject setValue:[dic valueForKey:@"location"] forKey:@"geo"];
+                [newManagedObject setValue:[dic valueForKey:@"status_id"] forKey:@"id"]; 
+                
+                [newManagedObject setValue:[dic valueForKey:@"message"] forKey:@"text"];                 
+                
+                // Save the context.
+                
+                if (![context save:&error]){
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    abort();
+                }
+                break;
+            }
+
+            case 8:
+            {
+                NSManagedObjectContext *context = [self.RfriendListFetchedResultsController managedObjectContext];
+                NSEntityDescription *entity = [[self.RfriendListFetchedResultsController fetchRequest] entity];
+                NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+                
+                [newManagedObject setValue:[dic valueForKey:@"headurl"] forKey:@"headurl"];
+                [newManagedObject setValue:[dic valueForKey:@"id"] forKey:@"id"];
+            
+                [newManagedObject setValue:[dic valueForKey:@"name"] forKey:@"name"]; 
+            
+                
+                // Save the context.
+                
+                if (![context save:&error]){
+                    // Replace this implementation with code to handle the error appropriately.
+                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+                    abort();
+                }
+                break;
+            }
+
+                
 
             default:break;
                 

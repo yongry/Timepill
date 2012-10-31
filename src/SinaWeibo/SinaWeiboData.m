@@ -7,7 +7,6 @@
 //
 
 #import "SinaWeiboData.h"
-#import "SNAppDelegate.h"
 @implementation SinaWeiboData
 
 @synthesize sinaweibo;
@@ -232,7 +231,7 @@
 
         userInfo=result;
         //数据加载完毕，发送通知
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"userInfo" object:userInfo];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"weibo_userInfo" object:userInfo];
     }
     else if ([request.url hasSuffix:@"statuses/user_timeline.json"])
     {
@@ -278,12 +277,12 @@
                  {
                      isLoadingLatest1=NO;
                      page=1;
-                     [[NSNotificationCenter defaultCenter] postNotificationName:@"user_lateststatuses" object:user_statuses];
+                     [[NSNotificationCenter defaultCenter] postNotificationName:@"weibo_user_lateststatuses" object:user_statuses];
                  }
                  else{  //否则就是拉取全部微博
                      isLoadingLatest1=NO;
                      page=1;
-                     [[NSNotificationCenter defaultCenter] postNotificationName:@"user_statuses" object:user_statuses];
+                     [[NSNotificationCenter defaultCenter] postNotificationName:@"weibo_user_statuses" object:user_statuses];
                  }
              }
          }
@@ -334,12 +333,12 @@
                 {
                     isLoadingLatest2=NO;
                     page=1;
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"friends_lateststatuses" object:friends_statuses];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"weibo_friends_lateststatuses" object:friends_statuses];
                 }
                 else{
                     isLoadingLatest2=NO;
                     page=1;
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"friends_statuses" object:friends_statuses];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"weibo_friends_statuses" object:friends_statuses];
                 }
             }
 
@@ -378,7 +377,7 @@
         else {
             isFirstLoadingFriends=YES;
             next_count=1;
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"friends" object:friends];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"weibo_friends" object:friends];
         }
     }
 }

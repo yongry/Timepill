@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendsListViewController : UIViewController
+@interface FriendsListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *FriendsListTableView;
+
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 
 @end

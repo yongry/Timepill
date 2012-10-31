@@ -36,6 +36,9 @@
 		B09E16EA1637D318004B3FC3 /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09E16E91637D318004B3FC3 /* FriendsListViewController.m */; };
 		B09E16ED1637D9BD004B3FC3 /* LongWeiboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09E16EC1637D9BD004B3FC3 /* LongWeiboViewController.m */; };
 		B09E16F01637DA0E004B3FC3 /* CreateDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B09E16EF1637DA0E004B3FC3 /* CreateDiaryViewController.m */; };
+		CF8FC794163FB74100674AFC /* DataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CF8FC793163FB74100674AFC /* DataClient.m */; };
+		CF8FC79B163FB77F00674AFC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF8FC79A163FB77F00674AFC /* CoreData.framework */; };
+		CF8FC7A3163FB9CA00674AFC /* WeiboModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF8FC7A0163FB9CA00674AFC /* WeiboModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,11 @@
 		B09E16EC1637D9BD004B3FC3 /* LongWeiboViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongWeiboViewController.m; sourceTree = "<group>"; };
 		B09E16EE1637DA0E004B3FC3 /* CreateDiaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateDiaryViewController.h; sourceTree = "<group>"; };
 		B09E16EF1637DA0E004B3FC3 /* CreateDiaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateDiaryViewController.m; sourceTree = "<group>"; };
+		CF8FC792163FB74100674AFC /* DataClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClient.h; sourceTree = "<group>"; };
+		CF8FC793163FB74100674AFC /* DataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataClient.m; sourceTree = "<group>"; };
+		CF8FC79A163FB77F00674AFC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CF8FC7A1163FB9CA00674AFC /* WeiboModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "WeiboModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		CF8FC7A2163FB9CA00674AFC /* WeiboModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeiboModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF8FC79B163FB77F00674AFC /* CoreData.framework in Frameworks */,
 				B09E16B91637C26C004B3FC3 /* QuartzCore.framework in Frameworks */,
 				B09E168C1637B854004B3FC3 /* UIKit.framework in Frameworks */,
 				B09E168E1637B854004B3FC3 /* Foundation.framework in Frameworks */,
@@ -99,6 +108,7 @@
 		B09E167C1637B854004B3FC3 = {
 			isa = PBXGroup;
 			children = (
+				CF8675A4163FA000003F09BC /* CoreData */,
 				B09E16D21637C7F1004B3FC3 /* Images */,
 				B09E16BA1637C283004B3FC3 /* RFbutton */,
 				B09E16911637B854004B3FC3 /* Timeline */,
@@ -118,6 +128,7 @@
 		B09E168A1637B854004B3FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF8FC79A163FB77F00674AFC /* CoreData.framework */,
 				B09E16B81637C26C004B3FC3 /* QuartzCore.framework */,
 				B09E168B1637B854004B3FC3 /* UIKit.framework */,
 				B09E168D1637B854004B3FC3 /* Foundation.framework */,
@@ -152,6 +163,7 @@
 		B09E16921637B854004B3FC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CF8FC7A0163FB9CA00674AFC /* WeiboModel.xcdatamodeld */,
 				B09E16931637B854004B3FC3 /* Timeline-Info.plist */,
 				B09E16941637B854004B3FC3 /* InfoPlist.strings */,
 				B09E16971637B855004B3FC3 /* main.m */,
@@ -188,6 +200,15 @@
 				B09E16C91637C7EB004B3FC3 /* red_x_up@2x.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		CF8675A4163FA000003F09BC /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				CF8FC792163FB74100674AFC /* DataClient.h */,
+				CF8FC793163FB74100674AFC /* DataClient.m */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +297,8 @@
 				B09E16EA1637D318004B3FC3 /* FriendsListViewController.m in Sources */,
 				B09E16ED1637D9BD004B3FC3 /* LongWeiboViewController.m in Sources */,
 				B09E16F01637DA0E004B3FC3 /* CreateDiaryViewController.m in Sources */,
+				CF8FC794163FB74100674AFC /* DataClient.m in Sources */,
+				CF8FC7A3163FB9CA00674AFC /* WeiboModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,8 +410,24 @@
 				B09E16A71637B855004B3FC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CF8FC7A0163FB9CA00674AFC /* WeiboModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CF8FC7A1163FB9CA00674AFC /* WeiboModel 2.xcdatamodel */,
+				CF8FC7A2163FB9CA00674AFC /* WeiboModel.xcdatamodel */,
+			);
+			currentVersion = CF8FC7A2163FB9CA00674AFC /* WeiboModel.xcdatamodel */;
+			name = WeiboModel.xcdatamodeld;
+			path = "../../../timeline总/新浪微博2/demo/WeiboModel.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B09E167E1637B854004B3FC3 /* Project object */;
 }

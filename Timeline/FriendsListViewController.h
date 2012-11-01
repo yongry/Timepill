@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FriendsListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface FriendsListViewController : UIViewController
+<UITableViewDelegate, UITableViewDataSource, UISearchDisplayDelegate>
+
 @property (strong, nonatomic) IBOutlet UITableView *FriendsListTableView;
+@property (strong, nonatomic) IBOutlet UISearchDisplayController *searchDisplayController;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
-
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@property (nonatomic, copy) NSArray *friends;
+@property (nonatomic, copy) NSArray *searchResults;
 
 @end

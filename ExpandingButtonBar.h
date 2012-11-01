@@ -34,7 +34,7 @@
      * Button that is shown after pressed. Fades in. 
      * -------------------------------------------------------*/
     UIButton *_toggledButton;
-
+    
     /* ---------------------------------------------------------
      * Public. Time for each button to animate into view in seconds.
      * -------------------------------------------------------*/
@@ -84,12 +84,6 @@
     BOOL _animated;
     
     BOOL _toggled;
-    
-    BOOL _dragging;
-    
-    CGPoint startPoint;
-    CGPoint startTouchPoint;
-    //CGPoint originPoint;
 }
 
 @property (nonatomic, strong) NSArray *buttons;

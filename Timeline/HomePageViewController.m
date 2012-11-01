@@ -9,11 +9,16 @@
 #import "HomePageViewController.h"
 
 @interface HomePageViewController()
+@property (nonatomic) BOOL timeSelectionTableShow;
 @end
 
 @implementation HomePageViewController
-@synthesize tableview;
+@synthesize timeSelection;
 @synthesize bar = _bar;
+@synthesize timeMenu = _timeMenu;
+@synthesize diaryTableview;
+@synthesize timeSelectionTableShow;
+@synthesize diaries;
 
 - (void)viewDidLoad
 {
@@ -72,13 +77,58 @@
     
     [[self navigationController] setToolbarHidden:YES];
     [[self navigationController] setNavigationBarHidden:NO];
+    
+    /* ---------------------------------------------------------
+     * Setting of timeTableView
+     * -------------------------------------------------------*/
+    self.timeSelection = [[NSArray alloc] initWithObjects:@"本年", @"本月", @"本日", @"自定义", nil];
+    
+    CGRect timeMenuViewFrame = CGRectMake(self.view.bounds.origin.x - 80, self.view.bounds.origin.y, 80, self.view.frame.size.height);
+    self.timeMenu = [[TimeSelectionMenu alloc] initWithFrame:timeMenuViewFrame timeButtonsTitles:self.timeSelection];
+    [self.view addSubview:self.timeMenu];
+    self.timeSelectionTableShow = NO;
+    
+    [self.timeMenu setDelegate:self];
+    
+    /* ---------------------------------------------------------
+     * Setting of diaryTableView
+     * -------------------------------------------------------*/
+    self.diaries = [[NSArray alloc] initWithObjects:@"1",@"2", nil];
 }
 
 - (void)viewDidUnload
 {
+    [self setTimeMenu:nil];
+    [self setDiaryTableview:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+
+- (IBAction)selectTimeAnimation:(id)sender{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDelay:0.05];
+    [UIView setAnimationDuration:0.05];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    /*newly changed*/
+    if(self.timeSelectionTableShow){
+        CGRect mainViewFrame = CGRectMake(self.view.bounds.origin.x , self.view.bounds.origin.y, 
+                                          self.view.bounds.size.width, self.view.bounds.size.height);
+        self.timeSelectionTableShow = NO;
+        
+        self.view.frame = mainViewFrame;
+    }
+    else{
+        self.timeSelectionTableShow = YES;
+        CGRect mainViewFrame = CGRectMake(self.view.bounds.origin.x + self.timeMenu.bounds.size.width, self.view.bounds.origin.y, 
+                                          self.view.bounds.size.width, self.view.bounds.size.height);
+        self.view.frame = mainViewFrame;
+        
+    }
+    
+    [UIView commitAnimations];
 }
 
 - (void) onCreateDiary
@@ -119,17 +169,28 @@
     NSLog(@"will disappear");
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.bar touchesBegan:touches withEvent:event];
- }
- 
- -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-     [self.bar touchesMoved:touches withEvent:event];
- }
+/* ---------------------------------------------------------
+ * Delegate methods of TimeSelectionDelegate
+ * -------------------------------------------------------*/
 
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    [self.bar touchesEnded:touches withEvent:event];
+-(void)timeSelected{
+    NSLog(@"hello");
 }
- 
+
+#pragma mark -
+#pragma mark table view delegate method
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.diaries count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *diaryTableviewIdentifier = @"diaryCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:diaryTableviewIdentifier];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:diaryTableviewIdentifier];
+    }
+    cell.textLabel.text = [self.diaries objectAtIndex:indexPath.row];
+    return cell;
+}
 
 @end

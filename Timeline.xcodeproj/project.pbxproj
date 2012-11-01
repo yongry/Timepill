@@ -119,6 +119,7 @@
 		CF938A18164120A100AA6F83 /* SinaWeiboRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF9389C8164120A100AA6F83 /* SinaWeiboRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF938A1A16412EF500AA6F83 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CF938A1916412EF500AA6F83 /* libsqlite3.0.dylib */; };
 		CFC26800164135F400B3A184 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CFC267FE164135F400B3A184 /* DataModel.xcdatamodeld */; };
+		CFC2681016415BDF00B3A184 /* TimeSelectionMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC2680F16415BDF00B3A184 /* TimeSelectionMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -307,6 +308,8 @@
 		CF9389C8164120A100AA6F83 /* SinaWeiboRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinaWeiboRequest.m; sourceTree = "<group>"; };
 		CF938A1916412EF500AA6F83 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		CFC267FF164135F400B3A184 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		CFC2680E16415BDF00B3A184 /* TimeSelectionMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSelectionMenu.h; sourceTree = "<group>"; };
+		CFC2680F16415BDF00B3A184 /* TimeSelectionMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeSelectionMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,7 +332,6 @@
 		B09E167C1637B854004B3FC3 = {
 			isa = PBXGroup;
 			children = (
-				CF938A1916412EF500AA6F83 /* libsqlite3.0.dylib */,
 				CF9389271641206900AA6F83 /* DataManager */,
 				CF8675A4163FA000003F09BC /* CoreData */,
 				B09E16D21637C7F1004B3FC3 /* Images */,
@@ -351,6 +353,7 @@
 		B09E168A1637B854004B3FC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF938A1916412EF500AA6F83 /* libsqlite3.0.dylib */,
 				CF8FC79A163FB77F00674AFC /* CoreData.framework */,
 				B09E16B81637C26C004B3FC3 /* QuartzCore.framework */,
 				B09E168B1637B854004B3FC3 /* UIKit.framework */,
@@ -398,6 +401,8 @@
 		B09E16BA1637C283004B3FC3 /* RFbutton */ = {
 			isa = PBXGroup;
 			children = (
+				CFC2680E16415BDF00B3A184 /* TimeSelectionMenu.h */,
+				CFC2680F16415BDF00B3A184 /* TimeSelectionMenu.m */,
 				B09E16BB1637C2E3004B3FC3 /* ExpandingButtonBar.h */,
 				B09E16BC1637C2E3004B3FC3 /* ExpandingButtonBar.m */,
 			);
@@ -909,6 +914,7 @@
 				CF938A17164120A100AA6F83 /* SinaWeiboData.m in Sources */,
 				CF938A18164120A100AA6F83 /* SinaWeiboRequest.m in Sources */,
 				CFC26800164135F400B3A184 /* DataModel.xcdatamodeld in Sources */,
+				CFC2681016415BDF00B3A184 /* TimeSelectionMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

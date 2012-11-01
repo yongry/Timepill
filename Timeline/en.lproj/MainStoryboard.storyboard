@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="dzY-Ny-ayL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11B26" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="OAV-lV-ai8">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
+        <deployment defaultVersion="1280" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
         <scene sceneID="sDj-H6-KbS">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPw-h2-Wl6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -21,7 +20,6 @@
             </objects>
             <point key="canvasLocation" x="-507" y="-151"/>
         </scene>
-        <!--Create Diary View Controller - 日记页面-->
         <scene sceneID="2xf-TR-HIz">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMn-EE-Jt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -36,7 +34,6 @@
             </objects>
             <point key="canvasLocation" x="-218" y="536"/>
         </scene>
-        <!--Long Weibo View Controller - 长微博页面-->
         <scene sceneID="IT7-0D-Fal">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0V-wS-J56" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -57,7 +54,6 @@
             </objects>
             <point key="canvasLocation" x="242" y="536"/>
         </scene>
-        <!--Home Page View Controller - 我的时间轴-->
         <scene sceneID="z70-Wy-3Qj">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CbG-3q-cfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -65,10 +61,36 @@
                     <view key="view" contentMode="scaleToFill" id="nmK-Z0-C8z">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="0Zo-Q0-Noj">
+                                <rect key="frame" x="0.0" y="120" width="263" height="296"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="XsL-7a-pOR">
+                                        <rect key="frame" x="0.0" y="22" width="263" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="263" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bXZ-ty-Asr" id="VJ9-v5-dnb"/>
+                                    <outlet property="delegate" destination="bXZ-ty-Asr" id="hVS-ts-6K7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="我的时间轴" id="dmH-iw-AGP">
-                        <barButtonItem key="leftBarButtonItem" title="日期" id="B4c-Xr-MQ4"/>
+                        <barButtonItem key="leftBarButtonItem" title="日期" id="B4c-Xr-MQ4">
+                            <connections>
+                                <action selector="selectTimeAnimation:" destination="bXZ-ty-Asr" id="5Gx-ni-1FF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="好友" id="xXO-np-TlR">
                             <connections>
                                 <segue destination="WVw-kc-fOZ" kind="push" id="NZ8-gb-Enh"/>
@@ -76,6 +98,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="diaryTableview" destination="0Zo-Q0-Noj" id="oBc-0w-mHJ"/>
                         <segue destination="Vmc-ks-vd1" kind="push" identifier="createDiary" id="9DX-QP-hDx"/>
                         <segue destination="RdK-Jo-ltg" kind="push" identifier="longWeibo" id="Q14-bu-BKy"/>
                     </connections>
@@ -83,7 +106,6 @@
             </objects>
             <point key="canvasLocation" x="-148" y="-156"/>
         </scene>
-        <!--Our Timeline View Controller - 我们的时间轴-->
         <scene sceneID="lcw-nh-gjp">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nMH-aP-chM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -104,7 +126,6 @@
             </objects>
             <point key="canvasLocation" x="294" y="-151"/>
         </scene>
-        <!--Where To Add Friend View Controller - 添加好友-->
         <scene sceneID="zre-N7-0Or">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cub-PF-ynZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -139,18 +160,25 @@
             </objects>
             <point key="canvasLocation" x="717" y="-145"/>
         </scene>
-        <!--Friends List View Controller - 好友列表-->
         <scene sceneID="iKf-6d-U10">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JX6-Uu-CmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dzY-Ny-ayL" customClass="FriendsListViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="wEg-tS-xIh">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vI8-h7-wgS">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" id="ArJ-76-akV">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="dzY-Ny-ayL" id="9y7-OY-A2F"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="aVM-q7-2Gg">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Fe9-Xd-URB">
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -159,48 +187,31 @@
                                 </view>
                             </tableViewCell>
                         </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dzY-Ny-ayL" id="MnU-fo-mpn"/>
+                            <outlet property="delegate" destination="dzY-Ny-ayL" id="7Jw-kw-4A5"/>
+                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="好友列表" id="4pX-U6-XcF"/>
                     <connections>
-                        <outlet property="FriendsListTableView" destination="wEg-tS-xIh" id="K0n-nM-Vha"/>
+                        <outlet property="FriendsListTableView" destination="vI8-h7-wgS" id="ovu-Mv-IXV"/>
+                        <outlet property="searchBar" destination="ArJ-76-akV" id="jG1-OK-RqL"/>
+                        <outlet property="searchDisplayController" destination="dj2-BY-loW" id="V8f-HI-Hph"/>
                     </connections>
                 </viewController>
+                <searchDisplayController id="dj2-BY-loW">
+                    <connections>
+                        <outlet property="delegate" destination="dzY-Ny-ayL" id="1oL-fk-8nR"/>
+                        <outlet property="searchBar" destination="ArJ-76-akV" id="K6y-XU-nfm"/>
+                        <outlet property="searchContentsController" destination="dzY-Ny-ayL" id="fah-E3-oim"/>
+                        <outlet property="searchResultsDataSource" destination="dzY-Ny-ayL" id="B1y-ad-6rZ"/>
+                        <outlet property="searchResultsDelegate" destination="dzY-Ny-ayL" id="UKc-Zl-Laj"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1110" y="-137"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="CreateDiaryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CreateDiaryViewController.h"/>
-        </class>
-        <class className="FriendsListViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FriendsListViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="FriendsListTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="HomePageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HomePageViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LongWeiboViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LongWeiboViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sendToWeibo:"/>
-            </relationships>
-        </class>
-        <class className="OurTimelineViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/OurTimelineViewController.h"/>
-        </class>
-        <class className="WhereToAddFriendViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/WhereToAddFriendViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loadFriendFromWeibo:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -68,6 +68,7 @@
         [defaultButton setImage:image forState:UIControlStateNormal];
         [defaultButton setImage:selectedImage forState:UIControlEventTouchDown];
         [defaultButton addTarget:self action:@selector(onButton:) forControlEvents:UIControlEventTouchUpInside];
+        [defaultButton addTarget:self action:@selector(draggedOut:withEvent:) forControlEvents:UIControlEventTouchDragOutside];
         [self setButton:defaultButton];
         
         UIButton *toggledButton = [[UIButton alloc] initWithFrame:buttonFrame];
@@ -75,6 +76,7 @@
         [toggledButton setImage:toggledImage forState:UIControlStateNormal];
         [toggledButton setImage:toggledSelectedImage forState:UIControlEventTouchDown];
         [toggledButton addTarget:self action:@selector(onToggledButton:) forControlEvents:UIControlEventTouchUpInside];
+        [toggledButton addTarget:self action:@selector(draggedOut:withEvent:) forControlEvents:UIControlEventTouchDragOutside];
         // Init invisible
         [toggledButton setAlpha:0.0f];
         [self setToggledButton:toggledButton];
@@ -91,7 +93,7 @@
         [self setBackgroundColor:[UIColor clearColor]];
         [self setFrame:buttonFrame];
         [self setCenter:center];
-                
+        
         [self addSubview:[self button]];
         [self addSubview:[self toggledButton]];
     }
@@ -111,7 +113,6 @@
     _spin = NO;
     _horizontal = NO;
     _animated = YES;
-    _dragging = NO;
 }
 
 - (void) onButton:(id)sender
@@ -166,7 +167,7 @@
         [view setTransform:unScale];
     }];
 }
-    
+
 - (void) showButtonsAnimated:(BOOL)animated
 {
     if ([self delegate] && [[self delegate] respondsToSelector:@selector(expandingBarWillAppear:)]) {
@@ -211,7 +212,7 @@
             [animationGroup setDuration:_animationTime];
             [animationGroup setFillMode: kCAFillModeForwards];
             [animationGroup setTimingFunction: [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
-
+            
             NSDictionary *properties = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:button, [NSValue valueWithCGPoint:CGPointMake(endX, endY)], animationGroup, nil] forKeys:[NSArray arrayWithObjects:@"view", @"center", @"animation", nil]];
             [self performSelector:@selector(_expand:) withObject:properties afterDelay:_delay * ([[self buttons] count] - i)];
         }
@@ -386,6 +387,7 @@
  * The following is a hack to allow touches outside
  * of this view. Use caution when changing.
  * --------------------------------------------*/
+
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event 
 {
     UIView *v = nil;
@@ -409,57 +411,7 @@
     return isInside;
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    if([[event allTouches] count] == 1){
-       startPoint = self.frame.origin;
-       startTouchPoint = [[[[event allTouches] allObjects] objectAtIndex:0] locationInView:self];
-        
-        if(startTouchPoint.x > startPoint.x && startTouchPoint.x < startPoint.x + self.frame.size.width
-           && startTouchPoint.y > startPoint.y && startTouchPoint.y < startPoint.y + self.frame.size.height - 40){
-            _dragging = YES;
-        }
-    }
-    NSLog(@"startPoint:%f,%f\n startTouchPoint:%f, %f ",startPoint.x, startPoint.y, startTouchPoint.x, startTouchPoint.y);
-    //NSLog(@"%i",_dragging);
+-(void)draggedOut:(UIControl *)c withEvent:(UIEvent *)ev { 
+    self.center = [[[ev allTouches] anyObject] locationInView:nil];
 }
-
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    if(!_dragging){
-        return;
-    }
-    CGPoint currentTouchPoint = [[[[event allTouches] allObjects] objectAtIndex:0] locationInView:self];
-    CGRect currentFrame = self.frame;
-    currentFrame.origin.x = startPoint.x + currentTouchPoint.x - startTouchPoint.x;
-    currentFrame.origin.y = startPoint.y + currentTouchPoint.y - startTouchPoint.y;
-    
-    if(currentFrame.origin.x < 0)
-        currentFrame.origin.x = 0;
-    if(currentFrame.origin.y < 0)
-        currentFrame.origin.y = 0;
-    if(currentFrame.origin.x > 320 - currentFrame.size.width)
-        currentFrame.origin.x = 320 - currentFrame.size.width;
-    if(currentFrame.origin.y > 460 - currentFrame.size.height)
-        currentFrame.origin.y = 460 - currentFrame.size.height;
-    self.frame = currentFrame;
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    [super touchesEnded:touches withEvent:event];
-    NSLog(@"touch end");
-    _dragging = NO;
-}
-
-/*-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"touches began");
-    UITouch *touch = [touches anyObject];
-    originPoint = [touch locationInView:self];
-}
--(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    UITouch *touch = [touches anyObject];
-    CGPoint currentLocation = [touch locationInView:self];
-    CGRect frame = self.frame;
-    frame.origin.x += currentLocation.x - originPoint.x;
-    frame.origin.y += currentLocation.y - originPoint.y;
-    self.frame = frame;
-}*/
 @end

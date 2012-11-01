@@ -8,15 +8,23 @@
 
 #import <UIKit/UIKit.h>
 #import "ExpandingButtonBar.h"
+#import "TimeSelectionMenu.h"
 
 @interface HomePageViewController : UIViewController
-<ExpandingButtonBarDelegate>
+<ExpandingButtonBarDelegate, TimeSelectionMenuDelegate, UITableViewDelegate, UITableViewDataSource>
 {
     ExpandingButtonBar *_bar;
+    TimeSelectionMenu *_timeMenu;
 }
 
-@property (strong, nonatomic) IBOutlet UITableView *tableview;
 @property (strong, nonatomic) ExpandingButtonBar *bar;
+@property (strong, nonatomic) TimeSelectionMenu *timeMenu;
+@property (strong, nonatomic) NSArray *timeSelection;
+@property (strong, nonatomic) IBOutlet UITableView *diaryTableview;
+@property (strong, nonatomic) NSArray *diaries;
+
+- (IBAction)selectTimeAnimation:(id)sender;
+
 
 -(void) onCreateDiary;
 -(void) onShareDiary;
